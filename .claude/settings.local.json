@@ -16,7 +16,9 @@
       "Bash(pip config list:*)",
       "Bash(pip config unset:*)",
       "Bash(git add .claude/ project_process.md \"项目流程.pptx\")",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ]
   }
 }
