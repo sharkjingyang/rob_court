@@ -8,28 +8,35 @@ This is a badminton/tennis court booking automation tool. It uses Selenium to au
 
 ## Commands
 
-Run the main booking script with arguments:
+### Single User Mode
 ```bash
-python multi_jinze.py --usr "姓名" --phone "手机号" --num 人数 --type "羽毛球" --court 场地编号 --date 从今天开始第几天 --time 时间段序号
+python booking.py --usr "姓名" --phone "手机号" --num 人数 --type "羽毛球" --court 场地编号 --date 从今天开始第几天 --time 时间段序号
 ```
 
-Run multiple bookings in parallel (for different users):
+### Batch Mode (Recommended)
 ```bash
-python jinze_rob.py
+python booking.py --batch
 ```
+
+Batch mode reads users from `config.json` and runs bookings in parallel using threading.
 
 ## Architecture
 
-The project consists of two Python files:
+The project consists of the following files:
 
-- **multi_jinze.py** - Core automation script that:
+- **booking.py** - Unified entry point that supports both single-user and batch modes:
   - Uses Selenium WebDriver with Chrome
+  - Single user mode: accepts CLI arguments for one booking
+  - Batch mode: reads from config.json and runs multiple bookings in parallel using threading
   - Waits until a specified time before executing (configured in `pause()` function)
-  - Fills in a web form on jinshuju.com with user info, phone, number of people, booking type
-  - Selects court, date, and time slots
-  - Submits the form automatically
 
-- **jinze_rob.py** - Batch runner that launches multiple CMD windows, each running `multi_jinze.py` with different user parameters for parallel booking attempts
+- **config file for batch mode.json** - Configuration:
+  - Contains user list with name, phone, court, and time
+  - Common settings: num, type, date
+
+- **jinze_rob.py** - Core booking script (legacy, called by booking.py)
+
+- **multi_jinze.py** - Legacy batch runner (deprecated, use booking.py --batch)
 
 ## Dependencies
 
@@ -39,8 +46,8 @@ The project consists of two Python files:
 
 ## Configuration
 
-In `multi_jinze.py`:
-- Line 60: Set the start time (`pause(driver, '09:00:00.175')`)
-- Line 184: ChromeDriver path if needed
+In `booking.py`:
+- Line 24: Set the start time (`START_TIME = '09:00:00.175'`)
+- Line 22: ChromeDriver path if needed
 
 The script currently targets `https://jinshuju.com/f/vcswPJ` for form submission.
