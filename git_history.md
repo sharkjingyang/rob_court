@@ -2,6 +2,20 @@
 
 ## 2026-02-19
 
+### Commits (since origin/master)
+- (No new commits since last push - working directory changes only)
+
+### Changes
+- .claude/settings.local.json: 新增了 zip/unzip/ls 等 Bash 命令权限，用于文件压缩和解压操作
+- summary_git/SKILL.md: 删除了旧版 skill 文件（已迁移到 Claude skills 目录）
+
+### Stats
+- 2 files changed, 5 insertions(+), 44 deletions(-)
+
+---
+
+## 2026-02-19
+
 ### Changes
 - booking.py: 新增统一入口文件，支持单用户预订和批量预订模式，使用threading实现并行执行
 - config.json: 新增批量预订配置文件，包含用户列表和通用设置

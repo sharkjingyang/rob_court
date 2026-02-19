@@ -18,7 +18,11 @@
       "Bash(git add .claude/ project_process.md \"项目流程.pptx\")",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(zip -r:*)",
+      "Bash(unzip -l:*)",
+      "Bash(unzip -p:*)",
+      "Bash(ls:*)"
     ]
   }
 }
