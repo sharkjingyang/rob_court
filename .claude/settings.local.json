@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "WebSearch",
+      "Bash(python -c:*)",
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(git init:*)",
+      "Bash(npm link)",
+      "Bash(python:*)",
+      "Bash(where:*)",
+      "Bash(pip install python-pptx -q)",
+      "Bash(pip install:*)",
+      "Bash(pip config list:*)",
+      "Bash(pip config unset:*)",
+      "Bash(git add .claude/ project_process.md \"项目流程.pptx\")",
+      "Bash(git add:*)"
+    ]
+  }
+}
